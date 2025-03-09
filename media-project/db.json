@@ -1,18 +1,14 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "Myra"
-      },
-      {
-        "name": "Elsie Price",
-        "id": 3
-      },
-      {
-        "name": "Harold Strosin",
-        "id": 4
-      }
-    ],
-    "albums": [],
-    "photos": []
-  }
+  "users": [
+    {
+      "name": "Harold Stehr",
+      "id": 1
+    },
+    {
+      "name": "Jan Gleichner",
+      "id": 2
+    }
+  ],
+  "albums": [],
+  "photos": []
+}
