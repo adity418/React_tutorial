@@ -7,8 +7,44 @@
     {
       "name": "Jan Gleichner",
       "id": 2
+    },
+    {
+      "name": "Darren Homenick",
+      "id": 3
     }
   ],
-  "albums": [],
-  "photos": []
+  "albums": [
+    {
+      "userId": 1,
+      "title": "Elegant Rubber Hat",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "Electronic Granite Pizza",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "title": "Luxurious Fresh Soap",
+      "id": 3
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 2,
+      "url": "https://loremflickr.com/150/150/abstract?lock=47070",
+      "id": 1
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=18686",
+      "id": 7
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=23527",
+      "id": 8
+    }
+  ]
 }
