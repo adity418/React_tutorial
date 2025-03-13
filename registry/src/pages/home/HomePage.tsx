@@ -10,7 +10,7 @@ export default function HomePage() {
                 key={p.name}
                 className="flex flex-col justify-between gap-3 border rounded shadow p-4"
             >
-                <div className="flex flex-col gap-1 border-bottom border blue-400">
+                <div className="flex flex-col gap-2 border-bottom border-blue-400">
                     <div className="font-bold text-center">{p.name}</div>
                     <div className="text-sm text-red-500">{p.description}</div>
                     <div className="text-sm text-green-500">
@@ -19,7 +19,7 @@ export default function HomePage() {
                 </div>
                 <Link
                     to={`/packages/${p.name}`}
-                    className="border rounded border-red-900 text-center"
+                    className="border rounded bg-green-300 border-red-900 text-center"
                 >
                     View
                 </Link>                
