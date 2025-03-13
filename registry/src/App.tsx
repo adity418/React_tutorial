@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root";
 import HomePage from "./pages/HomePage";
-import DetailsPage from "./pages/DetailsPage";
-import SearchPage from "./pages/SearchPage";
+import DetailsPage from "./pages/details/DetailsPage";
+import { detailsLoader } from "./pages/details/detailsLoader";
+import { searchLoader } from "./pages/search/searchLoader";
+import SearchPage from "./pages/search/SearchPage";
 
 const router = createBrowserRouter([
   {
@@ -16,25 +18,12 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <SearchPage />,
-        loader: async ({request}) => {
-          const { searchParams } = new URL(request.url);
-          const term = searchParams.get("term");
-
-          if (!term) {
-            throw new Error("Search term must be provided");
-          }
-
-          const res = await fetch(
-            `https://registry.nomjs.org/-/v1/search?text=${term}`
-          );
-          const data = await res.json();
-          
-          return data.objects;
-        },
+        loader: searchLoader,
       },
       {
         path: "/packages/:name",
-        element: <DetailsPage />
+        element: <DetailsPage />,
+        loader: detailsLoader,
       }
     ]
   }
