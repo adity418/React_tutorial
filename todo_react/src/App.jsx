@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './App.css'
 
 function Task({ task, index, completeTask, removeTask }) {
@@ -39,3 +39,48 @@ function CreateTask({ addTask }) {
   );
 }
 
+function Todo() {
+  const [tasksRemaining, setTasksRemaing] = useState(0);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => { setTasksRemaing(tasks.filter(task => !task.completed).length) });
+
+  const addTask = title => {
+    const newTasks = [...tasks, {title, completed: false}];
+    setTasks(newTasks)
+  };
+ 
+  const completeTask = index => {
+    const newTasks = [...tasks];
+    newTasks[index].completed = true;
+    setTasks(newTasks);
+  };
+
+  const removeTask = index => {
+    const newTasks = [...tasks];
+    newTasks.splice(index, 1);
+    setTasks(newTasks);
+  };
+
+  return (
+    <div className="todo-container">
+      <div className="header">Pending tasks ({tasksRemaining})</div>
+      <div className="tasks">
+        {tasks.map((task, index) => (
+          <Task 
+          task={task}
+          index={index}
+          completeTask={completeTask}
+          removeTask={removeTask}
+          key={index}
+          />
+        ))}
+      </div>
+      <div className="create-task">
+        <CreateTask addTask={addTask}/>
+      </div>
+    </div>
+  );
+}
+
+export default Todo;
