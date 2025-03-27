@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './App.css'
 
 function Task({ task, index, completeTask, removeTask }) {
@@ -15,3 +15,27 @@ function Task({ task, index, completeTask, removeTask }) {
     </div>
   );
 }
+
+
+function CreateTask({ addTask }) {
+  const [value, setValue] = useState("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!value) return;
+    addTask(value);
+    setValue("");
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <input 
+        type="text"
+        className="input"
+        value={value}
+        placeholder="Add a new task"
+        onChange={e => setValue(e.target.value)} 
+      />
+    </form>
+  );
+}
+
